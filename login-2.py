@@ -1,6 +1,5 @@
 import time
 import json
-import requests
 import webbrowser
 import urllib.error
 import urllib.request
@@ -42,7 +41,7 @@ while runing:
     r=json.loads(r)
 
     if r["info"]=="设备未响应":
-        if requests.get('http://www.baidu.com').status_code==200:
+        if urllib.request.urlopen("https://www.baidu.com/").status==200:
             runing = False
             url = 'http://www.baidu.com'
             webbrowser.open(url)
@@ -78,7 +77,7 @@ while runing:
     r=json.loads(r)
 
     if r["info"]=="设备未响应":
-        if requests.get('http://www.baidu.com').status_code==200:
+        if urllib.request.urlopen("https://www.baidu.com/").status==200:
             runing = False
             url = 'http://www.baidu.com'
             webbrowser.open(url)
